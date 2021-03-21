@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import { ThemeProvider } from 'styled-components';
+import React, { useReducer, useState } from 'react';
 
-function App() {
+import { theme } from './theme/theme'
+
+import Header from './layout/header/Header';
+import LandingPage from './layout/landingPage/LandingPage'
+import Rota from './layout/rota/Rota'
+import Footer from './layout/footer/Footer'
+import LogInPopUp from './elements/pop-up/LogIn'
+
+export default function App() {
+
+  const [userLogin, setUserLogin] = useState(false)
+  const [LogIn, setLogIn] = useState(false)
+  const [SignIn, setSignIn] = useState(false)
+
   return (
+
+
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <ThemeProvider theme={theme}>
+
+        <Header 
+          setLogIn={setLogIn} 
+          setSignIn={setSignIn} />
+
+        { userLogin ? 
+          <Rota/> 
+          : 
+          <LandingPage /> }
+
+        { LogIn ? <LogInPopUp setLogIn={setLogIn} /> : ''}
+
+        { SignIn ? 'Sign in screen' : ''}
+
+        <Footer />
+
+      </ThemeProvider>
     </div>
   );
 }
-
-export default App;

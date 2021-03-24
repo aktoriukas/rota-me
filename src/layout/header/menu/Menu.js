@@ -12,9 +12,11 @@ export default function Menu(props) {
 
         switch(button){
             case 'signIn':
+                setLogIn(false)
                 setSignIn(true)
                 break
             case 'logIn':
+                setSignIn(false)
                 setLogIn(true)
                 break
             default:

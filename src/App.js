@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components';
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 
 import { theme } from './theme/theme'
 
@@ -8,12 +8,14 @@ import LandingPage from './layout/landingPage/LandingPage'
 import Rota from './layout/rota/Rota'
 import Footer from './layout/footer/Footer'
 import LogInPopUp from './elements/pop-up/LogIn'
+import SignInPopUp from './elements/pop-up/SignIn'
 
 export default function App() {
 
-  const [userLogin, setUserLogin] = useState(false)
+  const [userLogin, setUserLogin] = useState(true)
   const [LogIn, setLogIn] = useState(false)
   const [SignIn, setSignIn] = useState(false)
+
 
   return (
 
@@ -33,7 +35,7 @@ export default function App() {
 
         { LogIn ? <LogInPopUp setLogIn={setLogIn} /> : ''}
 
-        { SignIn ? 'Sign in screen' : ''}
+        { SignIn ? <SignInPopUp setSignIn={setSignIn} /> : ''}
 
         <Footer />
 

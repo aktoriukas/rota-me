@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { 
     PopUp, 
     H2, 
@@ -7,17 +8,20 @@ import {
     Label } from './style-popUp';
 
 
-export default function LogIn(props) {
+export default function SignIn(props) {
     return (
-
         <PopUp>
-            <Close onClick={() => props.setLogIn(false)}>✖</Close>
-            
-            <H2>Log In</H2>
+            <Close onClick={() => props.setSignIn(false)}>✖</Close>
 
+            <H2>Sign In</H2>
+            
             <Input placeholder='username'/>
 
+            <Input placeholder='email'/>
+
             <Input placeholder='password'/>
+
+            <Input placeholder='re-password'/>
 
             <Input type='submit'/>
 

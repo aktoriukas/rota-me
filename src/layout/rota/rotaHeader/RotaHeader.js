@@ -4,7 +4,7 @@ import {
     HeaderLayout, 
     HeaderItem,
     HeaderText,
-    HeaderDate } from './styled-rotaHeader'
+    HeaderDate } from './style-rotaHeader'
 
 export default function rotaHeader() {
 
@@ -17,9 +17,8 @@ export default function rotaHeader() {
         let weekdays = []
 
         for(let i = 0; i < 7; i++){
-
-            let day = monday
-            day.setDate(new Date(monday.valueOf()).getDate() + i)
+            let day = new Date(monday)
+            day.setDate(day.getDate() + i)
 
             weekdays.push(
                 <HeaderItem key={i}>

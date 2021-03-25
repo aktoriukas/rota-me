@@ -1,10 +1,12 @@
 import React from 'react'
 
 import { 
-    HeaderLayout, 
-    HeaderItem,
     HeaderText,
     HeaderDate } from './style-rotaHeader'
+
+import {
+    RotaItem,
+    RotaLayout  } from '../style-rota';
 
 export default function rotaHeader() {
 
@@ -21,10 +23,10 @@ export default function rotaHeader() {
             day.setDate(day.getDate() + i)
 
             weekdays.push(
-                <HeaderItem key={i}>
+                <RotaItem key={i}>
                     <HeaderText>Name</HeaderText>
                     <HeaderDate>{formatSimpleDate(day)}</HeaderDate>
-                </HeaderItem>
+                </RotaItem>
             )
         }
         return weekdays
@@ -33,17 +35,17 @@ export default function rotaHeader() {
     const week = constructWeekdays()
 
     return (
-        <HeaderLayout>
-            <HeaderItem>
+        <RotaLayout>
+            <RotaItem>
                 <HeaderText>Name</HeaderText>
-            </HeaderItem>
+            </RotaItem>
 
             {week}
 
-            <HeaderItem>
+            <RotaItem>
                 <HeaderText>Total</HeaderText>
-            </HeaderItem>
+            </RotaItem>
 
-        </HeaderLayout>
+        </RotaLayout>
     )
 }

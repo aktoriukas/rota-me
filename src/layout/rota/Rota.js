@@ -18,16 +18,21 @@ class Week {
 }
 
 class Worker {
-    constructor(name, role, week){
-        this.name = name || 'unknow';
-        this.role = role || 'unknow';
-        this.week = new Week(week || []);
+    constructor(name, role, id, week){
+        this.name = name            || 'unknow';
+        this.role = role            || 'unknow';
+        this.id = id                || null;
+        this.week = new Week(week   || []);
     }
 }
 
-let naujas = new Worker('gedas', null)
+let gedas = new Worker('gedas', 'developer', null, [{starting: '12:00', finishing: '15:00'}])
+let julius = new Worker('julius', 'analist')
 
-console.log(naujas)
+console.log(gedas)
+
+let people = [gedas, julius]
+
 
 export default function Rota() {
 
@@ -39,7 +44,9 @@ export default function Rota() {
             
             <EmployeesList>
 
-                <Employee/>
+                {people.map(person => (
+                    <Employee key={person.name} employee={person}/>
+                ))}
 
             </EmployeesList>
 

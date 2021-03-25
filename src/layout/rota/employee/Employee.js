@@ -1,9 +1,29 @@
 import React from 'react'
 
-export default function employee() {
+import Shift from './shift/Shift'
+
+import { } from './style-employee'
+import { 
+    RotaLayout, 
+    RotaItem } from '../style-rota'
+
+export default function employee(props) {
+
+    const { name, role, week } = props.employee
+
+    const weekdays = Object.keys(week)
+
     return (
-        <div>
-            employee
-        </div>
+
+        <RotaLayout>
+
+            <RotaItem>{name}</RotaItem>
+
+            {weekdays.map((key, index) => (
+
+                <Shift key={index} shift={week[key]}/>
+            ))}
+
+        </RotaLayout>
     )
 }

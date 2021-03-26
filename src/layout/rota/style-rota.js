@@ -20,5 +20,4 @@ grid-template-columns: repeat(9, 1fr);
 
 export const RotaItem = styled.div`
 
-
 `

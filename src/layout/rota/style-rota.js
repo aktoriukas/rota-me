@@ -14,11 +14,11 @@ export const EmployeesList = styled.div`
 
 export const RotaLayout = styled.div`
 
-display: grid;
-grid-template-columns: repeat(9, 1fr);
-`
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    `
 
 export const RotaItem = styled.div`
 
 
-`
+    `

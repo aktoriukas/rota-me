@@ -26,10 +26,10 @@ class Worker {
     }
 }
 
-let gedas = new Worker('gedas', 'developer', null, [{starting: '12:00', finishing: '15:00'}])
+let gedas = new Worker('gedas', 'developer', null, [{starting: '12:50', finishing: '15:00'}])
 let julius = new Worker('julius', 'analist')
 
-console.log(gedas)
+// console.log(gedas)
 
 let people = [gedas, julius]
 

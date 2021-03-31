@@ -15,6 +15,8 @@ export const EmployeesList = styled.div`
 export const RotaLayout = styled.div`
 
     display: grid;
+    grid-gap: .25rem;
+    margin-bottom: .25rem;
     grid-template-columns: repeat(9, 1fr);
     `
 

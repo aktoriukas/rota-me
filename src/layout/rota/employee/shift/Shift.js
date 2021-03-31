@@ -11,7 +11,9 @@ import {
     IconContainer,
     Input,
     DropdownMenu,
-    DropdownItem } from './style-shift'
+    DropdownItem,
+    Container,
+    TotalHours } from './style-shift'
 
 export default function Shift(props) {
 
@@ -54,15 +56,20 @@ export default function Shift(props) {
                 : 
                 <TimeContainer>
                     
-                    <Input 
-                        onChange={e => setStartingTime(e.target.value)}
-                        type='time' 
-                        value={startingTime}/>
+                    <Container>
+                        <Input 
+                            onChange={e => setStartingTime(e.target.value)}
+                            type='time' 
+                            value={startingTime}/>
 
-                    <Input 
-                        onChange={e => setFinishingTime(e.target.value)}
-                        type='time' 
-                        value={finishingTime}/>
+                        <Input 
+                            onChange={e => setFinishingTime(e.target.value)}
+                            type='time' 
+                            value={finishingTime}/>
+
+                    </Container>
+
+                    <TotalHours>6:00</TotalHours>
 
                 </TimeContainer>
             }

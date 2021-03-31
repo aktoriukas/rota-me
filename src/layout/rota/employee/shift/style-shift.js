@@ -5,7 +5,23 @@ export const ShiftContainer = styled.div`
     width: 100%;
     min-height: 2rem;
     position: relative;
-    padding-bottom: 1rem;
+    padding:.25rem 0 1rem;
+    background-color: ${props => props.theme.slateGrey};
+    border-radius: .35rem;
+`
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+`
+
+export const TotalHours = styled.div`
+
+    text-align: center;
+    width: 100%;
+    color: ${props => props.theme.white};
 `
 
 export const DayOff = styled.div`
@@ -13,8 +29,14 @@ export const DayOff = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background: grey;
     text-align: center;
+    font-family: ${props => props.theme.fontFredoka};
+    font-size: 2.7rem;
+    line-height: 0.8;
+    color: ${props => props.theme.white};
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 0.3;
 `
 
 export const TimeContainer = styled.div`
@@ -22,7 +44,7 @@ export const TimeContainer = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 ` 
 
 export const IconContainer = styled.div`
@@ -33,19 +55,37 @@ export const IconContainer = styled.div`
     position: absolute;
     height: 1rem;
     bottom: 0;
+    color: ${props => props.theme.celadon};
+
     svg{
-        transition: transform .25s ease-in-out;
+        transition: 
+            transform .25s ease-in-out,
+            color .5s ease-in-out;
     }
     &:hover{
         svg{
-            transform: scale(1.2)
+            transform: scale(1.2);
+            color: ${props => props.theme.white};
         }
     }
 `
 
 export const Input = styled.input`
 
-    margin: auto;
+    border-radius: .35rem;
+    margin: 0 .25rem;
+    border: none;
+    padding:.05rem .5rem;
+    background: transparent;
+    color: ${props => props.theme.white};
+
+    &::-webkit-calendar-picker-indicator {
+        background: none;
+        display: none;
+    }
+    &:focus{
+        outline: none;
+    }
 `
 
 export const DropdownMenu = styled.ul`

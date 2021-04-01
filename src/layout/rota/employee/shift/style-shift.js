@@ -41,7 +41,6 @@ export const DayOff = styled.div`
 
 export const TimeContainer = styled.div`
 
-
     display: flex;
     flex-direction: column;
     align-items: center;

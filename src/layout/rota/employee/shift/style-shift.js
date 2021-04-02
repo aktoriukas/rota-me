@@ -112,6 +112,7 @@ export const DropdownItem = styled.li`
     background: ${props => props.theme.celadon};
     transition: background .25s ease-in-out;
     padding: .25rem 0;
+    color: ${props => props.theme.slateGrey};
 
     &:hover{
         background: ${props => props.theme.darkGreen};

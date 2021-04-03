@@ -9,7 +9,7 @@ import {
 
 export default function employee(props) {
 
-    const { name, role, week } = props.employee
+    const { name, role, id, week } = props.employee
 
     const weekdays = Object.keys(week)
 
@@ -21,7 +21,12 @@ export default function employee(props) {
 
             {weekdays.map((key, index) => (
 
-                <Shift key={index} shift={week[key]}/>
+                <Shift 
+                    id={id}
+                    dispatch={props.dispatch}
+                    key={index} 
+                    weekday={key}
+                    shift={week[key]}/>
             ))}
 
         </RotaLayout>

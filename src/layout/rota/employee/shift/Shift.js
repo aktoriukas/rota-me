@@ -19,6 +19,8 @@ export default function Shift(props) {
 
     const { starting , finishing } = props.shift
 
+    const { id, dispatch, shift, weekday } = props
+
     const [off, setOff] = useState(true)
     const [dropdown, setDropdown] = useState(false)
     const [startingTime, setStartingTime] = useState(starting || '00:00')
@@ -27,9 +29,9 @@ export default function Shift(props) {
 
     useEffect(() => {
 
-        setOff(props.shift === 'off' ? true : false)
+        setOff(shift === 'off' ? true : false)
 
-    }, [])
+    }, [shift])
 
     const setDay = (opt) => { 
         switch(opt){
@@ -46,6 +48,10 @@ export default function Shift(props) {
         }
     }
 
+    const updateData = () => {
+        dispatch({type: 'update-shift', payload: { id: id, weekday: weekday, time: { starting: '19:00', finishing: '20:00' } }})
+    }
+
     return (
         <ShiftContainer>
 
@@ -58,11 +64,13 @@ export default function Shift(props) {
                     
                     <Container>
                         <Input 
+                            onBlur={() => updateData()}
                             onChange={e => setStartingTime(e.target.value)}
                             type='time' 
                             value={startingTime}/>
 
                         <Input 
+                            onBlur={() => updateData()}
                             onChange={e => setFinishingTime(e.target.value)}
                             type='time' 
                             value={finishingTime}/>

@@ -19,9 +19,15 @@ export const Container = styled.div`
 
 export const TotalHours = styled.div`
 
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: .1rem .5rem .1rem .25rem;
+    background-color: ${props => props.theme.celadon};
     text-align: center;
-    width: 100%;
-    color: ${props => props.theme.white};
+    font-size: 1.1rem;
+    border-radius: 5px 0 0 0;
+    color: ${props => props.theme.slateGrey};
 `
 
 export const DayOff = styled.div`
@@ -72,11 +78,12 @@ export const IconContainer = styled.div`
 export const Input = styled.input`
 
     border-radius: .35rem;
-    margin: 0 .25rem;
+    margin: 0;
     border: none;
     padding:.05rem .5rem;
     background: transparent;
     color: ${props => props.theme.white};
+    font-size: 1.4rem;
 
     &::-webkit-calendar-picker-indicator {
         background: none;

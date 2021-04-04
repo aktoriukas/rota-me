@@ -29,7 +29,7 @@ export default function Shift(props) {
 
     useEffect(() => {
 
-        setOff(shift === 'off' ? true : false)
+        setOff(shift.off ? true : false)
 
     }, [shift])
 
@@ -49,7 +49,14 @@ export default function Shift(props) {
     }
 
     const updateData = () => {
-        dispatch({type: 'update-shift', payload: { id: id, weekday: weekday, time: { starting: '19:00', finishing: '20:00' } }})
+        dispatch({
+            type: 'update-shift', 
+            payload: { 
+                id: id, 
+                weekday: weekday, 
+                time: { starting: startingTime, finishing: finishingTime } 
+            }
+        })
     }
 
     return (

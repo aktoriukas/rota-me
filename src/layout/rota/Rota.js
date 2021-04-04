@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React, { useReducer, useEffect } from 'react'
 
 import RotaHeader from './rotaHeader/RotaHeader'
 import Employee from './employee/Employee'
@@ -9,13 +9,13 @@ export default function Rota() {
 
     class Week {
         constructor(array){
-            this.monday     = array[0] || 'off';
-            this.tuesday    = array[1] || 'off';
-            this.wednesday  = array[2] || 'off';
-            this.thursday   = array[3] || 'off';
-            this.friday     = array[4] || 'off';
-            this.saturday   = array[5] || 'off';
-            this.sunday     = array[6] || 'off';
+            this.monday     = array[0] || { off: true };
+            this.tuesday    = array[1] || { off: true };
+            this.wednesday  = array[2] || { off: true };
+            this.thursday   = array[3] || { off: true };
+            this.friday     = array[4] || { off: true };
+            this.saturday   = array[5] || { off: true };
+            this.sunday     = array[6] || { off: true };
         }
     }
     
@@ -24,7 +24,7 @@ export default function Rota() {
             this.name = name            || 'unknow';
             this.role = role            || 'unknow';
             this.id = id                || null;
-            this.week = new Week(week   || []);
+            this.week = new Week(week   || [ {} ]);
         }
     }
     
@@ -72,8 +72,8 @@ export default function Rota() {
                     }
                     return worker
                 })
+            console.log('clean')
             return  new WeekRota(emptyRota) 
-            break
 
             case 'update-shift':
 
@@ -81,17 +81,16 @@ export default function Rota() {
                 const { id , weekday, time } = action.payload
                 const { starting, finishing } = time
                 
-                let updatedShiftRota = state.workers.map(worker => {
-
-                    console.log(worker.id)
-                    console.log(id)
+                state.workers.map(worker => {
+                    
                     if(worker.id !== id) return worker
+
                     worker.week[weekday].starting = starting
                     worker.week[weekday].finishing = finishing
+
                     return worker
                 })
-                console.log(updatedShiftRota)
-            return new WeekRota(updatedShiftRota)
+            return state
                 
             default:
                 throw new Error()
@@ -100,6 +99,9 @@ export default function Rota() {
 
     const [state, dispatch] = useReducer(reducer, data)
 
+    const printData = () => {
+        console.log(state)
+    }
     
     return (
 
@@ -118,6 +120,7 @@ export default function Rota() {
 
             </EmployeesList>
             <button onClick={() => dispatch({type: 'clear-rota'})}>reset all rota</button>
+            <button onClick={printData}>console log data</button>
 
         </RotaContainer>
     )

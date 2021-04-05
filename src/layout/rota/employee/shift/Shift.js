@@ -15,6 +15,8 @@ import {
     Container,
     TotalHours } from './style-shift'
 
+import time from '../../../../functions/timeCalculations'
+
 export default function Shift(props) {
 
     const { starting , finishing } = props.shift
@@ -23,13 +25,14 @@ export default function Shift(props) {
 
     const [off, setOff] = useState(true)
     const [dropdown, setDropdown] = useState(false)
+    const [totalHours, setTotalHours] = useState('00:00')
     const [startingTime, setStartingTime] = useState(starting || '00:00')
     const [finishingTime, setFinishingTime] = useState(finishing || '00:00')
-
 
     useEffect(() => {
 
         setOff(shift.off ? true : false)
+        getTotal()
 
     }, [shift])
 
@@ -48,6 +51,13 @@ export default function Shift(props) {
         }
     }
 
+    const getTotal = () => {
+        const startingMin = time.stringToMinutes(startingTime)
+        const finishingMin = time.stringToMinutes(finishingTime)
+        const totalMin = time.calculateTotal(startingMin, finishingMin)
+        setTotalHours(time.minutesToString(totalMin))
+    }
+
     const updateData = () => {
         dispatch({
             type: 'update-shift', 
@@ -57,6 +67,7 @@ export default function Shift(props) {
                 time: { starting: startingTime, finishing: finishingTime } 
             }
         })
+        getTotal()
     }
 
     return (
@@ -84,7 +95,7 @@ export default function Shift(props) {
 
                     </Container>
 
-                    <TotalHours>6:00</TotalHours>
+                    <TotalHours>{totalHours}</TotalHours>
 
                 </TimeContainer>
             }

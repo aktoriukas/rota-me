@@ -104,18 +104,16 @@ export const DropdownMenu = styled.ul`
     padding: 0;
     width: 100%;
     height: 100%;
+    display:none;
 
     &.open{
-        li{
-            display: block;
-        }
+        display: block;
     }
 `
 
 export const DropdownItem = styled.li`
 
     position: relative;
-    display: none;
     background: ${props => props.theme.celadon};
     transition: background .25s ease-in-out;
     padding: .25rem 0;

@@ -68,11 +68,11 @@ export default function Rota() {
                 let emptyRota = state.workers.map(worker => {
 
                     for( let property in worker.week){
-                        worker.week[property] = 'off'
+                        worker.week[property].off = true
                     }
                     return worker
                 })
-            console.log('clean')
+            console.log('rota is clean')
             return  new WeekRota(emptyRota) 
 
             case 'update-shift':

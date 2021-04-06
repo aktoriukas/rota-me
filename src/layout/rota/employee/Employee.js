@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Shift from './shift/Shift'
 
@@ -7,9 +7,13 @@ import {
     RotaLayout, 
     RotaItem } from '../style-rota'
 
-export default function employee(props) {
+import time from '../../../functions/timeCalculations'
+
+
+export default function Employee(props) {
 
     const { name, role, id, week } = props.employee
+    const [weekTotal, setWeekTotal] = useState(0)
 
     const weekdays = Object.keys(week)
 
@@ -28,6 +32,8 @@ export default function employee(props) {
                     weekday={key}
                     shift={week[key]}/>
             ))}
+
+            <RotaItem>{time.minutesToString(weekTotal)}</RotaItem>
 
         </RotaLayout>
     )

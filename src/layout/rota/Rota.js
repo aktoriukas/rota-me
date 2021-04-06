@@ -119,6 +119,7 @@ export default function Rota() {
                 ))}
 
             </EmployeesList>
+            
             <button onClick={() => dispatch({type: 'clear-rota'})}>reset all rota</button>
             <button onClick={printData}>console log data</button>
 

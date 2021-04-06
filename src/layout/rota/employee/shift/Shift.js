@@ -107,6 +107,7 @@ export default function Shift(props) {
 
                     <DropdownItem onClick={() => setDay('off')}>off</DropdownItem>
                     <DropdownItem onClick={() => setDay('on')}>working</DropdownItem>
+                    
                 </DropdownMenu>
 
             </IconContainer>

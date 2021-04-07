@@ -24,3 +24,8 @@ export const RotaItem = styled.div`
 
 
     `
+
+export const LastRotaItem = styled.div`
+
+    grid-Column: 9/10;
+    `

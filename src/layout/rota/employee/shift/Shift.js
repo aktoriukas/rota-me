@@ -59,12 +59,13 @@ export default function Shift(props) {
     }
 
     const updateData = () => {
+
         dispatch({
             type: 'update-shift', 
             payload: { 
                 id: id, 
                 weekday: weekday, 
-                time: { starting: startingTime, finishing: finishingTime } 
+                shift: { starting: startingTime, finishing: finishingTime } 
             }
         })
         getTotal()

@@ -1,11 +1,20 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useState } from 'react'
 
 import RotaHeader from './rotaHeader/RotaHeader'
 import Employee from './employee/Employee'
 
-import { RotaContainer, EmployeesList } from './style-rota'
+import { 
+    RotaContainer, 
+    EmployeesList,
+    RotaLayout,
+    LastRotaItem } from './style-rota'
+
+import time from './../../functions/timeCalculations'
+
 
 export default function Rota() {
+
+    const [allWeekTotal, setAllWeekTotal] = useState(0)
 
     class Week {
         constructor(array){
@@ -78,8 +87,9 @@ export default function Rota() {
             case 'update-shift':
 
                 // loop workers, find matching id. Update weekday with new time.
-                const { id , weekday, time } = action.payload
-                const { starting, finishing } = time
+                const { id , weekday, shift } = action.payload
+                const { starting, finishing } = shift
+
                 
                 state.workers.map(worker => {
                     
@@ -119,6 +129,10 @@ export default function Rota() {
                 ))}
 
             </EmployeesList>
+
+            <RotaLayout>
+                    <LastRotaItem>{time.minutesToString(allWeekTotal)}</LastRotaItem>
+            </RotaLayout>
             
             <button onClick={() => dispatch({type: 'clear-rota'})}>reset all rota</button>
             <button onClick={printData}>console log data</button>

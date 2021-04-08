@@ -56,6 +56,7 @@ export default function Shift(props) {
         const finishingMin = time.stringToMinutes(finishingTime)
         const totalMin = time.calculateTotal(startingMin, finishingMin)
         setTotalHours(time.minutesToString(totalMin))
+        props.calculatePersonWeekTotal()
     }
 
     const updateData = () => {

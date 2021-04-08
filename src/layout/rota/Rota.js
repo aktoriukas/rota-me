@@ -89,7 +89,6 @@ export default function Rota() {
                 // loop workers, find matching id. Update weekday with new time.
                 const { id , weekday, shift } = action.payload
                 const { starting, finishing } = shift
-
                 
                 state.workers.map(worker => {
                     
@@ -98,6 +97,7 @@ export default function Rota() {
                     worker.week[weekday].starting = starting
                     worker.week[weekday].finishing = finishing
 
+                    console.log(worker)
                     return worker
                 })
             return state

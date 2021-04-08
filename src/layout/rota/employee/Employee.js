@@ -21,14 +21,7 @@ export default function Employee(props) {
     useEffect(() => {
         calculatePersonWeekTotal()
 
-
-        // NOT WORKING
-        if(props.employee.week !== week){
-            calculatePersonWeekTotal()
-
-        }
-
-    }, [props.employee.week])
+    }, [])
 
     const calculatePersonWeekTotal = () => {
 
@@ -46,7 +39,6 @@ export default function Employee(props) {
         setWeekTotal(totalMin)
     }
 
-
     return (
 
         <RotaLayout>
@@ -56,6 +48,7 @@ export default function Employee(props) {
             {weekdays.map((key, index) => (
 
                 <Shift 
+                    calculatePersonWeekTotal={calculatePersonWeekTotal}
                     id={id}
                     dispatch={props.dispatch}
                     key={index} 

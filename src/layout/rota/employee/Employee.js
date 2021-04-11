@@ -5,7 +5,8 @@ import Shift from './shift/Shift'
 import { } from './style-employee'
 import { 
     RotaLayout, 
-    RotaItem } from '../style-rota'
+    RotaItem,
+    LastRotaItem } from '../style-rota'
 
 import time from '../../../functions/timeCalculations'
 
@@ -34,9 +35,8 @@ export default function Employee(props) {
 
             totalMin += time.calculateTotal(starting, finishing)
         })
-        console.log(totalMin)
-
         setWeekTotal(totalMin)
+        props.calculateRotaTotalHours()
     }
 
     return (
@@ -56,7 +56,7 @@ export default function Employee(props) {
                     shift={week[key]}/>
             ))}
 
-            <RotaItem>{time.minutesToString(weekTotal)}</RotaItem>
+            <LastRotaItem className={weekTotal > 2400 ? 'overtime' : ''}>{time.minutesToString(weekTotal)}</LastRotaItem>
 
         </RotaLayout>
     )

@@ -24,7 +24,7 @@ export default function rotaHeader() {
 
             weekdays.push(
                 <RotaItem key={i}>
-                    <HeaderText>Name</HeaderText>
+                    <HeaderText>{day.toLocaleString("default", {weekday: "long"})}</HeaderText>
                     <HeaderDate>{formatSimpleDate(day)}</HeaderDate>
                 </RotaItem>
             )

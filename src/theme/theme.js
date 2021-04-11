@@ -6,6 +6,6 @@ export const theme = {
     darkPurple: '#85659a',
     white: '#ffffff',
     black: '#000000',
-    fontFredoka: 'Fredoka One, cursive'
-
+    fontFredoka: 'Fredoka One, cursive',
+    red: '#dd1e1e'
 }

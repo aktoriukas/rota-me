@@ -1,4 +1,7 @@
-import React, { useReducer, useState } from 'react'
+import React, { 
+    useReducer, 
+    useState,
+    useEffect } from 'react'
 
 import RotaHeader from './rotaHeader/RotaHeader'
 import Employee from './employee/Employee'
@@ -13,8 +16,6 @@ import time from './../../functions/timeCalculations'
 
 
 export default function Rota() {
-
-    const [allWeekTotal, setAllWeekTotal] = useState(0)
 
     class Week {
         constructor(array){
@@ -108,6 +109,32 @@ export default function Rota() {
     }
 
     const [state, dispatch] = useReducer(reducer, data)
+    const [allWeekTotal, setAllWeekTotal] = useState(0)
+
+    useEffect(() => {
+        calculateRotaTotalHours()
+        
+    }, [])
+
+    const calculateRotaTotalHours = () => {
+
+        let totalMin = 0;
+
+        state.workers.forEach(worker => {
+
+            for(let weekday in worker.week){
+
+                let starting = time.stringToMinutes(worker.week[weekday].starting)
+                let finishing = time.stringToMinutes(worker.week[weekday].finishing)    
+
+                totalMin += time.calculateTotal(starting, finishing)
+            }
+
+        });
+
+        setAllWeekTotal(totalMin)
+    }
+
 
     const printData = () => {
         console.log(state)
@@ -123,6 +150,7 @@ export default function Rota() {
 
                 {state.workers.map(person => (
                     <Employee 
+                        calculateRotaTotalHours={calculateRotaTotalHours}
                         dispatch={dispatch}
                         key={person.name} 
                         employee={person}/>

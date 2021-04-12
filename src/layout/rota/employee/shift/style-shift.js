@@ -8,6 +8,10 @@ export const ShiftContainer = styled.div`
     padding:.25rem 0 1rem;
     background-color: ${props => props.theme.slateGrey};
     border-radius: .35rem;
+
+    &.off{
+        background-color: #747c925c;
+    }
 `
 
 export const Container = styled.div`
@@ -42,7 +46,7 @@ export const DayOff = styled.div`
     color: ${props => props.theme.white};
     letter-spacing: 4px;
     text-transform: uppercase;
-    opacity: 0.3;
+    opacity: 0.4;
 `
 
 export const TimeContainer = styled.div`
@@ -80,10 +84,12 @@ export const Input = styled.input`
     border-radius: .35rem;
     margin: 0;
     border: none;
-    padding:.05rem .5rem;
+    padding:.05rem .15rem;
     background: transparent;
     color: ${props => props.theme.white};
+    text-align:center;
     font-size: 1.4rem;
+    font-family: "Barlow Condensed";
 
     &::-webkit-calendar-picker-indicator {
         background: none;

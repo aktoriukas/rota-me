@@ -35,7 +35,7 @@ export default function rotaHeader() {
     const week = constructWeekdays()
 
     return (
-        <RotaLayout>
+        <RotaLayout className='rota-header'>
             <RotaItem>
                 <HeaderText>Name</HeaderText>
             </RotaItem>

@@ -73,7 +73,7 @@ export default function Shift(props) {
     }
 
     return (
-        <ShiftContainer>
+        <ShiftContainer className={off ? 'off' : ''}>
 
             {off ?
                 <DayOff>

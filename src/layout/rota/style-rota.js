@@ -18,10 +18,17 @@ export const RotaLayout = styled.div`
     grid-gap: .25rem;
     margin-bottom: .25rem;
     grid-template-columns: repeat(9, 1fr);
+
+    &.rota-header{
+        background: ${props => props.theme.slateGrey};
+        padding-bottom: .25rem;
+    }
     `
 
 export const RotaItem = styled.div`
 
+    text-align: center;
+    margin: auto;
     `
 
 export const LastRotaItem = styled.div`

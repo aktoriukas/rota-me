@@ -31,15 +31,18 @@ export default function Shift(props) {
 
     useEffect(() => {
 
+        updateData()
         setOff(shift.off ? true : false)
-        getTotal()
 
-    }, [shift])
+    }, [shift, startingTime, finishingTime])
+
 
     const setDay = (opt) => { 
         switch(opt){
             case 'off':
                 setOff(true) 
+                setStartingTime('00:00')
+                setFinishingTime('00:00')
                 break
 
             case 'on':
@@ -84,13 +87,11 @@ export default function Shift(props) {
                     
                     <Container>
                         <Input 
-                            onBlur={() => updateData()}
                             onChange={e => setStartingTime(e.target.value)}
                             type='time' 
                             value={startingTime}/>
 
                         <Input 
-                            onBlur={() => updateData()}
                             onChange={e => setFinishingTime(e.target.value)}
                             type='time' 
                             value={finishingTime}/>

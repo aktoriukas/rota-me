@@ -7,7 +7,10 @@ export const Span = styled.span`
     margin: 0 auto;
     position: relative;
     border-radius: 20px;
-    box-shadow: 0 0 2px ${props => props.theme.white};
+    box-shadow: 
+        0 0 1px ${props => props.theme.white},
+        0 0 4px ${props => props.theme.darkGreen};
+    transition: all .25s ease-in-out; 
 
     `
 
@@ -20,7 +23,10 @@ export const BurgerButton = styled.div`
     flex-direction: column;
     justify-content: center;
     cursor: pointer;
+    z-index:9999;
     &:hover span {
+        box-shadow: 0 0 5px ${props => props.theme.white};
+
         &:nth-child(1) {
         }
         &:nth-child(2) {

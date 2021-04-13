@@ -29,12 +29,11 @@ export default function Header(props) {
 
             <BurgerMenu menu={menu} setMenu={setMenu}/>
 
-            {menu ? 
-                <Menu 
-                    setLogIn={setLogIn}
-                    setMenu={setMenu} 
-                    setSignIn={setSignIn} /> 
-                : ''}
+            <Menu 
+                menu={menu}
+                setLogIn={setLogIn}
+                setMenu={setMenu} 
+                setSignIn={setSignIn} /> 
 
         </HeaderEl>
     )

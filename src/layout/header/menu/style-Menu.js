@@ -5,14 +5,14 @@ export const MenuEl = styled.ul`
 
     position: fixed;
     z-index: 900;
-    height: calc(100% - 4.5rem);
-    width: 20%;
+    height: 100%;
+    width: 30%;
     background: 
         linear-gradient(167deg, 
             ${props => props.theme.darkPurple} 20%, 
             rgba(133,101,154,0.05) 100%);
-    right: 0;
     bottom: 0;
+    right: -100%;
     margin: 0;
     display: flex;
     flex-direction: column;
@@ -20,12 +20,10 @@ export const MenuEl = styled.ul`
     justify-content: flex-start;
     padding:0;
     clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
-    animation: slide-left .25s;
+    transition: all 0.65s cubic-bezier(1,-0.60, 0, 1.6);
     backdrop-filter: blur(3px);
-
-    @keyframes slide-left {
-        0%{ right: -100%}
-        100% { right: 0; }
+    &.open{
+        right: -10%;
     }
     `
 
@@ -39,7 +37,7 @@ export const MenuItem = styled.li`
     color: ${props => props.theme.white};
 
     &:nth-child(1){
-        margin-top: 2rem;
+        margin-top: 5rem;
     }
 
     &:after{

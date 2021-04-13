@@ -26,7 +26,7 @@ export default function Menu(props) {
 
     return (
 
-        <MenuEl>
+        <MenuEl className={props.menu ? 'open' : 'close'}>
             <MenuItem onClick={() => handleClick('signIn')}>Sign In</MenuItem>
             <MenuItem onClick={() => handleClick('logIn')}>Log In</MenuItem>
         </MenuEl>

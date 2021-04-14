@@ -1,14 +1,15 @@
 import React from 'react'
-
-import { Span, BurgerButton } from './style-BurgerMenu'
-
+import { Divide as Hamburger } from 'hamburger-react'
 
 export default function BurgerMenu(props) {
     return (
-        <BurgerButton onClick={() => props.setMenu(!props.menu)}>
-            <Span/>
-            <Span/>
-            <Span/>
-        </BurgerButton>
+
+        <Hamburger 
+            size={45}
+            rounded={true}
+            color={'white'}
+            toggled={props.menu}
+            toggle={props.setMenu}
+        />
     )
 }

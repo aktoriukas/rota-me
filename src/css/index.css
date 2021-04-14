@@ -5,4 +5,8 @@ body {
   font-family: "Barlow Condensed";
   letter-spacing: 1px; }
 
+.hamburger-react {
+  z-index: 9999;
+  position: fixed; }
+
 /*# sourceMappingURL=index.css.map */

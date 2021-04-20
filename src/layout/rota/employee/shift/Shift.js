@@ -23,7 +23,7 @@ export default function Shift(props) {
 
     const { id, dispatch, shift, weekday } = props
 
-    const [off, setOff] = useState(true)
+    const [off, setOff] = useState(props.shift.off)
     const [dropdown, setDropdown] = useState(false)
     const [totalHours, setTotalHours] = useState('00:00')
     const [startingTime, setStartingTime] = useState(starting || '00:00')
@@ -69,7 +69,7 @@ export default function Shift(props) {
             payload: { 
                 id: id, 
                 weekday: weekday, 
-                shift: { starting: startingTime, finishing: finishingTime } 
+                shift: { starting: startingTime, finishing: finishingTime, off } 
             }
         })
         getTotal()
